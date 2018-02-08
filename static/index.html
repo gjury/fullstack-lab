@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GJ Tests</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
+  <script defer src="https://use.fontawesome.com/releases/v5.0.0/js/all.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue-resource@1.3.5"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
+
+</head>
+<body>
+  <section class="section">
+    <div id="app" class="container">
+      <div class="tile is-ancestor">
+        <div class="tile is-4 is-vertical is-parent">
+
+          <div class="tile is-child box">
+
+            <risk-list @chosen="displayDetails" v-for="item in risks" v-bind:risk="item" v-bind:key="item.id"></risk-list>
+
+          </div>
+
+          <div class="tile is-child box">
+              <p class="subtitle">Guillermo Jury</p>
+          </div>
+
+        </div>
+
+        <div class="tile is-parent">
+          <div class="tile is-child box">
+
+            <risk-details :dets="selectedRiskDetails"></risk-details>
+
+
+
+          </div>
+        </div>
+      </div>
+
+
+
+
+
+
+    </div>
+  </section>
+
+  <script src="main.js"></script>
+
+</body>
+</html>
