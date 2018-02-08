@@ -61,14 +61,14 @@ Vue.component('risk-details',{
   },
   methods:{
     showpicker() {
-      console.log('OKKKKK');
+
       this.datepicker=true;
-      console.log('doned');
+
     }
   },
 
   updated: function(){
-    console.log('comp m')
+
     if (this.datepicker) window.flatpickr('#pckr',{inline:true});
     this.datepicker=false;
   }
@@ -87,16 +87,14 @@ new Vue({
 
         selectedRiskDetails:{Value:''},
 
-        debugtext:'hola',
+        debugtext:'',
 
   },
 
   mounted: function(){
 
-    console.log('Montado');
-
   // GET /someUrl
-  this.$http.get('/risks').then(response => {
+  this.$http.get('risks').then(response => {
 
     this.debugtext=response.body;
     this.risks=(response.body);
@@ -111,12 +109,10 @@ new Vue({
   methods:{
     displayDetails(obj) {
       this.selectedRisk=obj.risk.id;
-      this.$http.get('/risk/'+this.selectedRisk).then(response => {
+      this.$http.get('risk/'+this.selectedRisk).then(response => {
 
         this.debugtext=response.body;
         this.selectedRiskDetails=(response.body);
-
-        console.log(this.selectedRiskDetails)
 
       }, response => {
         // error callback
