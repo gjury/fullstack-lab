@@ -106,26 +106,39 @@ def risk(riskid):
 @app.route('/initdb', methods=["GET"])
 @db_session
 def initdb():
-    rp=Risk(name='Paraglider',description='Need to protect my investment on flying')
-    rb=Risk(name='Boat', description='a lot of money invested on it')
-
-    ra=[0]*5
+    ra=[0]*7
     ra[0]=Risk_attr(name='Address',type='string')
     ra[1]=Risk_attr(name='Valuation', type='number')
-    ra[2]=Risk_attr(name='StealableIndex',type='enum',enum_values=[Enum_value(value='High'),Enum_value(value='Medium'),Enum_value(value='Low')])
-    ra[3]=Risk_attr(name='Purchase',type='date')
+    ra[2]=Risk_attr(name='Stealable Index',type='enum',enum_values=[Enum_value(value='High'),Enum_value(value='Medium'),Enum_value(value='Low')])
+    ra[3]=Risk_attr(name='Purchase Date',type='date')
     ra[4]=Risk_attr(name='Clause',type='string')
+    ra[5]=Risk_attr(name='Date of production',type='date')
+    ra[6]=Risk_attr(name='Driver performance',type='enum',enum_values=[Enum_value(value='Dangerous'),Enum_value(value='Racing fan'),Enum_value(value='Average'),Enum_value(value='Safe')])
+
+    rp=Risk(name='Paraglider',description='Need to protect my investment on flying')
+    rb=Risk(name='Boat', description='a lot of money invested on it')
+    rc=Risk(name='Car', description='My fast car')
 
     Value(value='5000',risk=rp,risk_attr=ra[1])
     Value(value='One Way 500',risk=rp,risk_attr=ra[0])
     Value(value='Paragliding is a dangerous thing, please keep it safe',risk=rp,risk_attr=ra[4])
+
     Value(value='10000000',risk=rb,risk_attr=ra[1])
     Value(value='Bay by the Harbor',risk=rb,risk_attr=ra[0])
     Value(value='High',risk=rb,risk_attr=ra[2])
     Value(value='2018-01-03',risk=rb,risk_attr=ra[3])
     Value(value='Sailing is one of the most wonderful experiences',risk=rb,risk_attr=ra[4])
+
+    Value(value='25000',risk=rc,risk_attr=ra[1])
+    Value(value='Street 12 Dv',risk=rc,risk_attr=ra[0])
+    Value(value='Medium',risk=rc,risk_attr=ra[2])
+    Value(value='2013-07-03',risk=rc,risk_attr=ra[3])
+    Value(value='Sailing is one of the most wonderful experiences',risk=rc,risk_attr=ra[4])
+    Value(value='2005-01-03',risk=rc,risk_attr=ra[5])
+    Value(value='Average',risk=rc,risk_attr=ra[6])
+
     commit()
-    response = Response('OKK', 200)
+    response = Response('OK. All set.', 200)
     return response
 
 

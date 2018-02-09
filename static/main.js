@@ -30,7 +30,7 @@ Vue.component('risk-details',{
   template:`
 
   <ul>
-    <li v-for="el in dets">
+    <li v-for="(el,index) in dets">
         <h2>  {{ el['name'] }}</h2>
       <template v-if="el['type']=='string'">
           <input class="input is-rounded" type="text" placeholder="Text input" :value="el['value']">
@@ -40,8 +40,8 @@ Vue.component('risk-details',{
 
       </template>
       <template v-if="el['type']=='date'">
-          <input class="input is-rounded" type="text" id='pckr' :value="el['value']">
-          {{showpicker()}}
+          <input class="input is-rounded" type="text" :id="'pd'+index" :value="el['value']">
+          {{showpicker(index,el['value'])}}
 
       </template>
       <template v-if="el['type']=='enum'">
@@ -56,25 +56,22 @@ Vue.component('risk-details',{
   `,
   data:function(){
     return{
-      datepicker:false
+      datepicker:{}
     }
   },
   methods:{
-    showpicker() {
-
-      this.datepicker=true;
-
+    showpicker(p1,p2) {
+          this.datepicker['pd'+p1]=p2
     }
-  },
+},
 
-  updated: function(){
-
-    if (this.datepicker) window.flatpickr('#pckr',{inline:true});
-    this.datepicker=false;
-  }
-
-
-
+   updated: function(){
+      for (var key in this.datepicker) {
+          if (this.datepicker.hasOwnProperty(key)) {
+            window.flatpickr('#'+key,{inline:true , defaultDate:this.datepicker[key]});
+        }
+      }
+   }
 });
 
 new Vue({
