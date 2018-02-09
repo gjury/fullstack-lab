@@ -2,7 +2,7 @@
 This repo is for BriteCore to review as part of an exercise project
 
 ## Problem
-This solution provides the visualization of data that describes different assets required to provide insurance for. The data presented is the values for the different instances and the type of data that the insurer elected to describe the asset.
+This solution provides the visualization of data that describes different assets required to provide insurance for. The data presented are values for different instances and the type of data that the insurer elected to describe that asset. The form is not submitable to be persisted.
 
 ### Data
 > Deliverables will be either...
@@ -15,12 +15,13 @@ This solution provides the visualization of data that describes different assets
 > Deliverables will be...
 - [x] A well-tested REST API written in Python.
 
-There are 2 APIS, 
+There are 2 [APIS](https://github.com/gjury/fullstack-lab/blob/master/app.py), 
   * first one will retrieve all the Risks available
   
   `/risks/`
   
   * The second one will get all the data for the chosen Risk
+  
   `/risk/{idOfRisk}/`
 
 
@@ -29,6 +30,7 @@ There are 2 APIS,
 - [x] Mega bonus points** if you use Vue.js specifically.
 - [x] Mega bonus points** if you the app in [AWS Lambda]
 
+In order to keep it simple I used CDN for all the js libraries.
 
 ### Live
 Please note that the first request to be made, needs to be this one, so some data is created to render in the frontend.
