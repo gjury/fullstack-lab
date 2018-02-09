@@ -31,7 +31,18 @@ Vue.component('risk-details',{
 
   <ul>
     <li v-for="(el,index) in dets">
-        <h2>  {{ el['name'] }}</h2>
+
+
+
+
+
+
+
+        <div class="field">
+          <label class="label">{{ el['name'] }}</label>
+
+          <div class="control">
+
       <template v-if="el['type']=='string'">
           <input class="input is-rounded" type="text" placeholder="Text input" :value="el['value']">
       </template>
@@ -51,6 +62,8 @@ Vue.component('risk-details',{
             </select>
           </div>
       </template>
+      </div>
+    </div>
     </li>
   </ul>
   `,
