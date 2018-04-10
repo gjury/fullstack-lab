@@ -34,11 +34,11 @@ In order to keep it simple I used CDN for all the js libraries.
 
 ### Live
 Please note that the first request to be made, needs to be this one, so some data is created to render in the frontend.
-https://ne8g9tixsj.execute-api.us-east-1.amazonaws.com/dev/initdb
+OFFLINE - xxxxx://ne8g9tixsj.execute-api.us-east-1.amazonaws.com/dev/initdbxxxxxx
 
 Once that link provides an ok message, the app can be visited:
 
-### https://ne8g9tixsj.execute-api.us-east-1.amazonaws.com/dev/
+### OFFLINE xxxx://ne8g9tixsj.execute-api.us-east-1.amazonaws.com/dev/xxxxxxxx
 
 Also, please note that the domain in the url might change once the lambda is destroyed, or the app is undeployed with zappa, so please if the url doesnt work for you, please let me know.
 
